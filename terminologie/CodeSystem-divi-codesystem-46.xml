@@ -1,0 +1,18 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+    <url value="http://fhir.de/CodeSystem/divi/codesystem-46" />
+    <identifier>
+        <system value="urn:ietf:rfc:3986" />
+        <value value="1.2.276.0.76.3.1.195.5.46" />
+    </identifier>
+    <name value="divi-codesystem-46" /> 
+    <status value="draft"/>
+    <content value="complete" />
+    <concept>
+        <code value="1" />
+        <display value="Patient ist schwanger" />
+    </concept>
+    <concept>
+        <code value="0" />
+        <display value="Patient ist nicht schwanger" />
+    </concept>
+</CodeSystem>

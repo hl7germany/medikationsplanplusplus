@@ -1,0 +1,43 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+    <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+    </meta>
+    <url value="http://fhir.de/ValueSet/medikationsplanplus/pregnancystatus"/>
+    <version value="0.1-WORK"/>
+    <name value="medikationsplanplus-pregnancystatus"/> 
+    <status value="draft"/>
+    <date value="2017-08-08T21:30:00+02:00"/>
+    <description value="ValueSet zur Codierung des Schwangerschaftsstatus"/>
+    <compose>
+        <include>
+            <system value="http://fhir.de/CodeSystem/divi/codesystem-46"/>
+        </include>
+        <include>
+            <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+            <concept>
+                <code value="UNK" />
+                <display value="Unbekannt" />
+            </concept>
+        </include>
+    </compose>
+    <expansion>
+        <identifier value="urn:uuid:25ae81b1-0341-4bfc-b300-f12a63cc7276" />
+        <timestamp value="2017-08-08T21:33:00" />
+        <total value="3" />
+        <contains>
+            <system value="http://fhir.de/CodeSystem/divi/codesystem-46"/>
+            <code value="1" />
+            <display value="Patient ist schwanger" />
+        </contains>
+        <contains>
+            <system value="http://fhir.de/CodeSystem/divi/codesystem-46"/>
+            <code value="0" />
+            <display value="Patient ist nicht schwanger" />
+        </contains>
+        <contains>
+            <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+            <code value="UNK" />
+            <display value="Unbekannt" />
+        </contains>
+    </expansion>
+</ValueSet>
