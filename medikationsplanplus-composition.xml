@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <meta>
-    <lastUpdated value="2017-08-08T14:45:37.217+02:00" />
+    <lastUpdated value="2017-08-08T19:00:53.575+02:00" />
   </meta>
   <url value="http://fhir.de/StructureDefinition/medikationsplanplus/composition" />
   <name value="medikationsplanplus-composition" />
@@ -128,9 +128,8 @@
     </element>
     <element id="Composition.section:medikationsplanSection.title">
       <path value="Composition.section.title" />
-      <min value="1" />
       <fixedString value="aktuelle Medikation" />
-      <mustSupport value="true" />
+      <mustSupport value="false" />
     </element>
     <element id="Composition.section:medikationsplanSection.code">
       <path value="Composition.section.code" />
@@ -157,7 +156,6 @@
     <element id="Composition.section:medikationsplanSection.entry">
       <path value="Composition.section.entry" />
       <min value="1" />
-      <max value="1" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/medicationstatementlist" />
@@ -300,10 +298,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
       </type>
     </element>
-    <element id="entry:geburtstermin.reference">
-      <path value="Composition.section.entry.reference" />
-      <min value="1" />
-    </element>
     <element id="Composition.section:gesundheitsBelange.emptyReason">
       <path value="Composition.section.emptyReason" />
       <max value="0" />
@@ -388,6 +382,7 @@
     <element id="Composition.section:klinischeParameter.entry:creatinin">
       <path value="Composition.section.entry" />
       <sliceName value="creatinin" />
+      <max value="1" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/observation-creatinine" />

@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="List" />
   <meta>
-    <lastUpdated value="2017-08-08T12:28:22.861+02:00" />
+    <lastUpdated value="2017-08-08T19:12:31.69+02:00" />
   </meta>
   <text>
     <status value="generated" /><div xmlns="http://www.w3.org/1999/xhtml"></div></text>
@@ -161,15 +161,13 @@
     </element>
     <element id="List.title">
       <path value="List.title" />
-      <short value="Descriptive name for the list" />
+      <short value="Zwischenüberschrift Titel (@c)" />
       <definition value="A label for the list assigned by the author." />
       <requirements value="Allows customization beyond just the code identifying the kind of list." />
-      <min value="1" />
       <max value="1" />
       <type>
         <code value="string" />
       </type>
-      <fixedString value="Medikationsplan" />
       <example>
         <label value="General" />
         <valueString value="Dr. Jane's Patients" />
@@ -183,7 +181,7 @@
     </element>
     <element id="List.code">
       <path value="List.code" />
-      <short value="What the purpose of this list is" />
+      <short value="Zwischenüberschrift" />
       <definition value="This code defines the purpose of the list - why it was created." />
       <comment value="If there is no code, the purpose of the list is implied where it is used, such as in a document section using Document.section.code." />
       <requirements value="Lists often contain subsets of resources rather than an exhaustive list.  The code identifies what type of subset is included." />
@@ -200,7 +198,7 @@
         </extension>
         <strength value="required" />
         <description value="What the purpose of a list is" />
-        <valueSetUri value="http://loinc.org" />
+        <valueSetUri value="http://fhir.de/ValueSet/kbv/s-bmp-zwischenueberschrift" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -213,12 +211,13 @@
     </element>
     <element id="List.code.coding.system">
       <path value="List.code.coding.system" />
-      <fixedUri value="http://loinc.org" />
+      <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="List.code.coding.code">
       <path value="List.code.coding.code" />
       <min value="1" />
-      <fixedCode value="19009-0" />
+      <mustSupport value="true" />
     </element>
     <element id="List.subject">
       <path value="List.subject" />

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <meta>
-    <lastUpdated value="2017-08-08T12:34:02.326+02:00" />
+    <lastUpdated value="2017-08-08T18:08:47.896+02:00" />
   </meta>
   <url value="http://fhir.de/StructureDefinition/medikationsplanplus/medication" />
   <name value="medikationsplanplus-medication" />
@@ -18,6 +18,31 @@
       <path value="Medication.contained" />
       <max value="0" />
     </element>
+    <element id="Medication.code.coding">
+      <path value="Medication.code.coding" />
+      <binding>
+        <strength value="required" />
+        <valueSetUri value="urn:oid:1.2.276.0.76.4.6" />
+      </binding>
+    </element>
+    <element id="Medication.code.coding.system">
+      <path value="Medication.code.coding.system" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Medication.code.coding.code">
+      <path value="Medication.code.coding.code" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Medication.code.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Medication.code.text" />
+      <short value="Alternativer Textm falls PZN unbekannt" />
+      <mustSupport value="true" />
+    </element>
     <element id="Medication.isBrand">
       <path value="Medication.isBrand" />
       <max value="0" />
@@ -29,6 +54,97 @@
     <element id="Medication.manufacturer">
       <path value="Medication.manufacturer" />
       <max value="0" />
+    </element>
+    <element id="Medication.form">
+      <path value="Medication.form" />
+      <short value="Darreichungsform" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Medication.form.coding">
+      <path value="Medication.form.coding" />
+      <binding>
+        <strength value="required" />
+        <valueSetUri value="http://fhir.de/ValueSet/kbv/s-bmp-darreichungsform" />
+      </binding>
+    </element>
+    <element id="Medication.form.coding.system">
+      <path value="Medication.form.coding.system" />
+      <min value="1" />
+      <mustSupport value="false" />
+    </element>
+    <element id="Medication.form.coding.code">
+      <path value="Medication.form.coding.code" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Medication.form.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Medication.form.text" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Medication.ingredient.item[x]:itemCodeableConcept">
+      <path value="Medication.ingredient.itemCodeableConcept" />
+      <sliceName value="itemCodeableConcept" />
+      <comment value="ToDo: " />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+    </element>
+    <element id="itemCodeableConcept:itemCodeableConcept.coding">
+      <path value="Medication.ingredient.itemCodeableConcept.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <max value="1" />
+    </element>
+    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:whocc">
+      <path value="Medication.ingredient.itemCodeableConcept.coding" />
+      <sliceName value="whocc" />
+    </element>
+    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:whocc.system">
+      <path value="Medication.ingredient.itemCodeableConcept.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://www.whocc.no/atc" />
+    </element>
+    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:whocc.code">
+      <path value="Medication.ingredient.itemCodeableConcept.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:edqm">
+      <path value="Medication.ingredient.itemCodeableConcept.coding" />
+      <sliceName value="edqm" />
+    </element>
+    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:edqm.system">
+      <path value="Medication.ingredient.itemCodeableConcept.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:0.4.0.127.0.16.1.1.2.1" />
+    </element>
+    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:edqm.code">
+      <path value="Medication.ingredient.itemCodeableConcept.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Medication.package.container.coding.system">
+      <path value="Medication.package.container.coding.system" />
+      <comment value="ToDo: Kein ValueSet-Binding möglich, da PZN nicht als VS definiert, daher nur CodeSystem auf PZN gefixed" />
+      <min value="1" />
+      <fixedUri value="urn:oid:1.2.276.0.76.4.6" />
+    </element>
+    <element id="Medication.package.container.coding.code">
+      <path value="Medication.package.container.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Medication.package.content.item[x]:itemCodeableConcept">
+      <path value="Medication.package.content.itemCodeableConcept" />
+      <sliceName value="itemCodeableConcept" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
     </element>
   </differential>
 </StructureDefinition>
