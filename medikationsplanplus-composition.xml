@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2017-08-08T14:45:37.217+02:00" />
+  </meta>
+  <url value="http://fhir.de/StructureDefinition/medikationsplanplus/composition" />
+  <name value="medikationsplanplus-composition" />
+  <status value="draft" />
+  <date value="2017-08-05T13:51:24.084+02:00" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Composition" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Composition.identifier">
+      <path value="Composition.identifier" />
+      <definition value="Eindeutiger Identifier des Medikationsplans" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.identifier.system">
+      <path value="Composition.identifier.system" />
+      <short value="Namensraum" />
+      <definition value="Namensraum des Identifiert" />
+      <comment value="eindeutiger Namensraum des Erzeugers des Medikationsplans,&#xD;&#xA;z.B.: http://meine-organisation.de/NamingSystem/medikationsplan-id" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.identifier.value">
+      <path value="Composition.identifier.value" />
+      <short value="eindeutige ID" />
+      <definition value="eindeutige (systeminterne) ID des Medikationsplans" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.type">
+      <path value="Composition.type" />
+      <comment value="ToDo: Ist X_PMR hier der richtige LOINC-Code!?" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.type.coding.system">
+      <path value="Composition.type.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.type.coding.code">
+      <path value="Composition.type.coding.code" />
+      <min value="1" />
+      <fixedCode value="X_PMR" />
+    </element>
+    <element id="Composition.subject">
+      <path value="Composition.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/patient" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.subject.reference">
+      <path value="Composition.subject.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.encounter">
+      <path value="Composition.encounter" />
+      <max value="0" />
+    </element>
+    <element id="Composition.date">
+      <path value="Composition.date" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.author">
+      <path value="Composition.author" />
+      <comment value="ToDo: Kardinalität der Section klären" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/practitioner" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="author.reference">
+      <path value="Composition.author.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.title">
+      <path value="Composition.title" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.attester">
+      <path value="Composition.attester" />
+      <max value="0" />
+    </element>
+    <element id="Composition.custodian">
+      <path value="Composition.custodian" />
+      <max value="0" />
+    </element>
+    <element id="Composition.relatesTo">
+      <path value="Composition.relatesTo" />
+      <max value="0" />
+    </element>
+    <element id="Composition.event">
+      <path value="Composition.event" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.section:medikationsplanSection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="medikationsplanSection" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:medikationsplanSection.title">
+      <path value="Composition.section.title" />
+      <min value="1" />
+      <fixedString value="aktuelle Medikation" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:medikationsplanSection.code">
+      <path value="Composition.section.code" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:medikationsplanSection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:medikationsplanSection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="19009-0" />
+    </element>
+    <element id="Composition.section:medikationsplanSection.mode">
+      <path value="Composition.section.mode" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:medikationsplanSection.orderedBy">
+      <path value="Composition.section.orderedBy" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:medikationsplanSection.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/medicationstatementlist" />
+      </type>
+    </element>
+    <element id="Composition.section:medikationsplanSection.entry.reference">
+      <path value="Composition.section.entry.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:medikationsplanSection.emptyReason">
+      <path value="Composition.section.emptyReason" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:medikationsplanSection.section">
+      <path value="Composition.section.section" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:allergienSection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="allergienSection" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:allergienSection.code">
+      <path value="Composition.section.code" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:allergienSection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:allergienSection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="48765-2" />
+    </element>
+    <element id="Composition.section:allergienSection.mode">
+      <path value="Composition.section.mode" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:allergienSection.orderedBy">
+      <path value="Composition.section.orderedBy" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:allergienSection.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="allergyintolerance-de-medikationsplanplus" />
+      </type>
+    </element>
+    <element id="Composition.section:allergienSection.emptyReason">
+      <path value="Composition.section.emptyReason" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:allergienSection.section">
+      <path value="Composition.section.section" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:gesundheitsBelange">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="gesundheitsBelange" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:gesundheitsBelange.code">
+      <path value="Composition.section.code" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:gesundheitsBelange.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:gesundheitsBelange.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="75310-3" />
+    </element>
+    <element id="Composition.section:gesundheitsBelange.mode">
+      <path value="Composition.section.mode" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:gesundheitsBelange.orderedBy">
+      <path value="Composition.section.orderedBy" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:gesundheitsBelange.entry">
+      <path value="Composition.section.entry" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="reference" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <max value="3" />
+    </element>
+    <element id="Composition.section:gesundheitsBelange.entry:schwangerschaft">
+      <path value="Composition.section.entry" />
+      <sliceName value="schwangerschaft" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/observation-pregnancystatus" />
+      </type>
+    </element>
+    <element id="Composition.section:gesundheitsBelange.entry:schwangerschaft.reference">
+      <path value="Composition.section.entry.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:gesundheitsBelange.entry:stillzeit">
+      <path value="Composition.section.entry" />
+      <sliceName value="stillzeit" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/observation-breastfeeding" />
+      </type>
+    </element>
+    <element id="Composition.section:gesundheitsBelange.entry:stillzeit.reference">
+      <path value="Composition.section.entry.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:gesundheitsBelange.entry:geburtstermin">
+      <path value="Composition.section.entry" />
+      <sliceName value="geburtstermin" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://fhir.de/StructureDefinition/medikationsplanplus/observation-expecteddeliverydate" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
+      </type>
+    </element>
+    <element id="entry:geburtstermin.reference">
+      <path value="Composition.section.entry.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:gesundheitsBelange.emptyReason">
+      <path value="Composition.section.emptyReason" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:gesundheitsBelange.section">
+      <path value="Composition.section.section" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:klinischeParameter">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="klinischeParameter" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:klinischeParameter.title">
+      <path value="Composition.section.title" />
+      <fixedString value="Klinische Parameter" />
+    </element>
+    <element id="Composition.section:klinischeParameter.code">
+      <path value="Composition.section.code" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:klinischeParameter.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:klinischeParameter.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="55752-0" />
+    </element>
+    <element id="Composition.section:klinischeParameter.mode">
+      <path value="Composition.section.mode" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:klinischeParameter.orderedBy">
+      <path value="Composition.section.orderedBy" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:klinischeParameter.entry">
+      <path value="Composition.section.entry" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="reference" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <min value="1" />
+      <max value="3" />
+    </element>
+    <element id="Composition.section:klinischeParameter.entry:gewicht">
+      <path value="Composition.section.entry" />
+      <sliceName value="gewicht" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/observation-bodyweight" />
+      </type>
+    </element>
+    <element id="Composition.section:klinischeParameter.entry:gewicht.reference">
+      <path value="Composition.section.entry.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:klinischeParameter.entry:groesse">
+      <path value="Composition.section.entry" />
+      <sliceName value="groesse" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/observation-bodyheight" />
+      </type>
+    </element>
+    <element id="Composition.section:klinischeParameter.entry:groesse.reference">
+      <path value="Composition.section.entry.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:klinischeParameter.entry:creatinin">
+      <path value="Composition.section.entry" />
+      <sliceName value="creatinin" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/observation-creatinine" />
+      </type>
+    </element>
+    <element id="Composition.section:klinischeParameter.entry:creatinin.reference">
+      <path value="Composition.section.entry.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:klinischeParameter.emptyReason">
+      <path value="Composition.section.emptyReason" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:klinischeParameter.section">
+      <path value="Composition.section.section" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:einverstaendnisSection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="einverstaendnisSection" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:einverstaendnisSection.code">
+      <path value="Composition.section.code" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:einverstaendnisSection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:einverstaendnisSection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="64292-6" />
+    </element>
+    <element id="Composition.section:einverstaendnisSection.mode">
+      <path value="Composition.section.mode" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:einverstaendnisSection.orderedBy">
+      <path value="Composition.section.orderedBy" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:einverstaendnisSection.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus-consent" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:einverstaendnisSection.entry.reference">
+      <path value="Composition.section.entry.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:einverstaendnisSection.emptyReason">
+      <path value="Composition.section.emptyReason" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:einverstaendnisSection.section">
+      <path value="Composition.section.section" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:hinweiseSection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="hinweiseSection" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:hinweiseSection.code">
+      <path value="Composition.section.code" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:hinweiseSection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:hinweiseSection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="69730-0" />
+    </element>
+    <element id="Composition.section:hinweiseSection.text">
+      <path value="Composition.section.text" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.section:hinweiseSection.mode">
+      <path value="Composition.section.mode" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:hinweiseSection.orderedBy">
+      <path value="Composition.section.orderedBy" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:hinweiseSection.entry">
+      <path value="Composition.section.entry" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:hinweiseSection.emptyReason">
+      <path value="Composition.section.emptyReason" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section:hinweiseSection.section">
+      <path value="Composition.section.section" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

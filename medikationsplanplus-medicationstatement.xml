@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2017-08-08T15:06:39.07+02:00" />
+  </meta>
+  <url value="http://fhir.de/StructureDefinition/medikationsplanplus/medicationstatement" />
+  <name value="medikationsplanplus-medicationstatement" />
+  <status value="draft" />
+  <date value="2017-08-05T12:21:30.545+02:00" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="MedicationStatement" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationStatement" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="MedicationStatement.basedOn">
+      <path value="MedicationStatement.basedOn" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.partOf">
+      <path value="MedicationStatement.partOf" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.context">
+      <path value="MedicationStatement.context" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.status">
+      <path value="MedicationStatement.status" />
+      <comment value="ToDo: Invariante, die &quot;entered-in-error&quot;-Statements im Medikationsplan verbietet" />
+      <mustSupport value="true" />
+    </element>
+    <element id="MedicationStatement.category">
+      <path value="MedicationStatement.category" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.medication[x]:medicationReference">
+      <path value="MedicationStatement.medicationReference" />
+      <sliceName value="medicationReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/medication" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="MedicationStatement.effective[x]:effectivePeriod">
+      <path value="MedicationStatement.effectivePeriod" />
+      <sliceName value="effectivePeriod" />
+      <min value="1" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
+    <element id="effectivePeriod:effectivePeriod.start">
+      <path value="MedicationStatement.effectivePeriod.start" />
+      <min value="1" />
+    </element>
+    <element id="MedicationStatement.informationSource">
+      <path value="MedicationStatement.informationSource" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
+      </type>
+    </element>
+    <element id="MedicationStatement.subject">
+      <path value="MedicationStatement.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+      </type>
+    </element>
+    <element id="MedicationStatement.derivedFrom">
+      <path value="MedicationStatement.derivedFrom" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.reasonNotTaken">
+      <path value="MedicationStatement.reasonNotTaken" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.reasonCode.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="MedicationStatement.reasonCode.text" />
+      <mustSupport value="true" />
+    </element>
+    <element id="MedicationStatement.reasonReference">
+      <path value="MedicationStatement.reasonReference" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.note">
+      <path value="MedicationStatement.note" />
+      <short value="Patienteninstruktionen" />
+      <mustSupport value="true" />
+    </element>
+    <element id="MedicationStatement.dosage">
+      <path value="MedicationStatement.dosage" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="timing.code.coding.system" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <min value="1" />
+      <max value="5" />
+      <mustSupport value="true" />
+    </element>
+    <element id="MedicationStatement.dosage.text">
+      <path value="MedicationStatement.dosage.text" />
+      <mustSupport value="true" />
+    </element>
+    <element id="MedicationStatement.dosage.additionalInstruction">
+      <path value="MedicationStatement.dosage.additionalInstruction" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage.patientInstruction">
+      <path value="MedicationStatement.dosage.patientInstruction" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage.site">
+      <path value="MedicationStatement.dosage.site" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage.method">
+      <path value="MedicationStatement.dosage.method" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage.dose[x]">
+      <path value="MedicationStatement.dosage.dose[x]" />
+      <min value="1" />
+    </element>
+    <element id="MedicationStatement.dosage.maxDosePerPeriod">
+      <path value="MedicationStatement.dosage.maxDosePerPeriod" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage.maxDosePerAdministration:SimpleQuantity">
+      <path value="MedicationStatement.dosage.maxDosePerAdministration" />
+      <sliceName value="SimpleQuantity" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage.maxDosePerLifetime:SimpleQuantity">
+      <path value="MedicationStatement.dosage.maxDosePerLifetime" />
+      <sliceName value="SimpleQuantity" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage.rate[x]">
+      <path value="MedicationStatement.dosage.rate[x]" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts">
+      <path value="MedicationStatement.dosage" />
+      <sliceName value="morgensMittagsAbendsNachts" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.timing.event">
+      <path value="MedicationStatement.dosage.timing.event" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.timing.repeat">
+      <path value="MedicationStatement.dosage.timing.repeat" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.timing.code">
+      <path value="MedicationStatement.dosage.timing.code" />
+      <short value="CV|CD|CM|HS" />
+      <min value="1" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TimingAbbreviation" />
+        </extension>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="http://fhir.de/ValueSet/einnahmezeitpunkte" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.timing.code.coding.system">
+      <path value="MedicationStatement.dosage.timing.code.coding.system" />
+      <fixedUri value=" http://hl7.org/fhir/v3/TimingEvent" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.timing.code.coding.code">
+      <path value="MedicationStatement.dosage.timing.code.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.site">
+      <path value="MedicationStatement.dosage.site" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.route">
+      <path value="MedicationStatement.dosage.route" />
+      <mustSupport value="true" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.route.coding">
+      <path value="MedicationStatement.dosage.route.coding" />
+      <binding>
+        <strength value="required" />
+        <valueSetUri value="urn:oid: 2.16.840.1.113883.2.6.60.4.11.26" />
+      </binding>
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.route.coding.system">
+      <path value="MedicationStatement.dosage.route.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.route.coding.code">
+      <path value="MedicationStatement.dosage.route.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.method">
+      <path value="MedicationStatement.dosage.method" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.dose[x]:doseQuantity">
+      <path value="MedicationStatement.dosage.doseQuantity" />
+      <sliceName value="doseQuantity" />
+      <comment value="ToDo: Slicing einfügen und DoseRange profilieren" />
+      <min value="1" />
+      <type>
+        <code value="Quantity" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity" />
+      </type>
+    </element>
+    <element id="doseQuantity:doseQuantity.value">
+      <path value="MedicationStatement.dosage.doseQuantity.value" />
+      <min value="1" />
+    </element>
+    <element id="doseQuantity:doseQuantity.unit">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="MedicationStatement.dosage.doseQuantity.unit" />
+      <comment value="ToDo: Gibt es hier kein ValueSet Binding?" />
+      <min value="1" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.maxDosePerPeriod">
+      <path value="MedicationStatement.dosage.maxDosePerPeriod" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.maxDosePerAdministration:SimpleQuantity">
+      <path value="MedicationStatement.dosage.maxDosePerAdministration" />
+      <sliceName value="SimpleQuantity" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.maxDosePerLifetime:SimpleQuantity">
+      <path value="MedicationStatement.dosage.maxDosePerLifetime" />
+      <sliceName value="SimpleQuantity" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:morgensMittagsAbendsNachts.rate[x]">
+      <path value="MedicationStatement.dosage.rate[x]" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext">
+      <path value="MedicationStatement.dosage" />
+      <sliceName value="freitext" />
+      <max value="1" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.text">
+      <path value="MedicationStatement.dosage.text" />
+      <min value="1" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.additionalInstruction">
+      <path value="MedicationStatement.dosage.additionalInstruction" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.patientInstruction">
+      <path value="MedicationStatement.dosage.patientInstruction" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.timing">
+      <path value="MedicationStatement.dosage.timing" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.asNeeded[x]">
+      <path value="MedicationStatement.dosage.asNeeded[x]" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.site">
+      <path value="MedicationStatement.dosage.site" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.route">
+      <path value="MedicationStatement.dosage.route" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.method">
+      <path value="MedicationStatement.dosage.method" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.dose[x]">
+      <path value="MedicationStatement.dosage.dose[x]" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.maxDosePerPeriod">
+      <path value="MedicationStatement.dosage.maxDosePerPeriod" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.maxDosePerAdministration:SimpleQuantity">
+      <path value="MedicationStatement.dosage.maxDosePerAdministration" />
+      <sliceName value="SimpleQuantity" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.maxDosePerLifetime:SimpleQuantity">
+      <path value="MedicationStatement.dosage.maxDosePerLifetime" />
+      <sliceName value="SimpleQuantity" />
+      <max value="0" />
+    </element>
+    <element id="MedicationStatement.dosage:freitext.rate[x]">
+      <path value="MedicationStatement.dosage.rate[x]" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>
