@@ -1,11 +1,12 @@
 <Composition xmlns="http://hl7.org/fhir">
 	<meta>
-		<profile value="http://fhir.de/StructureDefinition/medikationsplanplus/list" />
+		<profile value="http://fhir.de/StructureDefinition/medikationsplanplus/composition" />
 	</meta>
 	<identifier>
 		<system value="http://example.de/composition-identifier"/>
 		<value value="12345654321"/>
 	</identifier>
+	<status value="final"/>
 	<type>
 		<coding>
 			<system value="http://loinc.org" />
@@ -24,33 +25,34 @@
 	<title value="Medikationsplan vom 1.8.2017"/>
 	<section>
 		<!-- Aktuelle Medikation -->
+		<code>
 		<coding>
 			<system value="http://loinc.org" />
 			<code value="19009-0" />
 		</coding>
+		</code>
 		<entry>
-			<item>
 				<reference value="List/medicationlist-1"/>
-			</item>
+		</entry>
+		<entry>
+				<reference value="List/medicationlist-2"/>
 		</entry>
 	</section>
 	<section>
 		<!-- Gesundheitsbelange -->
+		<code>
 		<coding>
 			<system value="http://loinc.org" />
 			<code value="75310-3" />
 		</coding>
+		</code>
 		<!--Schwangerschaftsstatus-->
 		<entry>
-			<item>
 				<reference value="Observation/observation-pregnancystatus-1"/>
-			</item>
 		</entry>
-		<!--Geburtstermin-->
+		<!--Stillzeit-->
 		<entry>
-			<item>
-				<reference value="Observation/observation-expectedbirthdate-1"/>
-			</item>
+				<reference value="Observation/observation-breastfeeding-1"/>
 		</entry>
 	</section>
 </Composition>

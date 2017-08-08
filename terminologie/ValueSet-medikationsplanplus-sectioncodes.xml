@@ -1,0 +1,71 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+	<url value="http://fhir.de/ValueSet/medikationsplanplus/sectioncodes" />
+	<version value="01-WORK" />
+	<name value="medikationsplanplus-sectioncodes" />
+	<status value="draft" />
+	<date value="2017-08-08" />
+	<publisher value="HL7 Deutschland e.V. (Technisches Komitee FHIR)" />
+	<contact>
+		<telecom>
+			<system value="other" />
+			<value value="http://hl7.de/technische-komitees/fhir/" />
+		</telecom>
+	</contact>
+	<description value=" Abschnittscodes im Medikationsplan " />
+	<compose>
+		<include>
+			<system value="http://loinc.org" />
+			<concept>
+				<code value="55752-0" />
+				<display value="Klinische Parameter" />
+			</concept>
+			<concept>
+				<code value="48765-2" />
+				<display value="Allergien und Unverträglichkeiten" />
+			</concept>
+			<concept>
+				<code value="75310-3" />
+				<display value="Gesundheitsbelange" />
+			</concept>
+			<concept>
+				<code value="19009-0" />
+				<display value="aktuelle Medikation" />
+			</concept>
+			<concept>
+				<code value="69730-0" />
+				<display value="Wichtige Angaben / Instruktionen" />
+			</concept>
+		</include>
+	</compose>
+	<expansion>
+		<identifier value="716fe2fd-37ba-4735-64bc-5171c97ec7bf" />
+		<timestamp value="2017-08-08T17:36:49" />
+		<total value="5" />
+		<contains>
+			<system value="http://loinc.org" />
+			<code value="55752-0" />
+			<display value="Klinische Parameter" />
+		</contains>
+		<contains>
+			<system value="http://loinc.org" />
+			<code value="48765-2" />
+			<display value="Allergien und Unverträglichkeiten" />
+		</contains>
+		<contains>
+			<system value="http://loinc.org" />
+			<code value="75310-3" />
+			<display value="Gesundheitsbelange" />
+		</contains>
+		<contains>
+			<system value="http://loinc.org" />
+			<code value="19009-0" />
+			<display value="aktuelle Medikation" />
+		</contains>
+		<contains>
+			<system value="http://loinc.org" />
+			<code value="69730-0" />
+			<display value="Wichtige Angaben / Instruktionen" />
+		</contains>
+
+	</expansion>
+</ValueSet>

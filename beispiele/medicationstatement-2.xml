@@ -1,0 +1,40 @@
+<MedicationStatement xmlns="http://hl7.org/fhir">
+	<meta>
+		<profile value="http://fhir.de/StructureDefinition/medikationsplanplus/medicationstatement" />
+	</meta>
+	<status value="active"/>
+	<medicationReference>
+		<reference value="/medication-2"/>
+	</medicationReference>
+	<effectivePeriod>
+		<start value = "2017-08-08"/>
+	</effectivePeriod>
+	<dateAsserted value="2017-08-01"/>
+	<subject>
+		<reference value="Patient/patient-1"/>
+	</subject>
+	<taken value="unk"/>
+	<dosage>
+		<timing>
+			<!-- Einnahmezeitpunks als Freitext -->
+			<code>
+				<text value="Immer wenn's stressig wird"/>
+			</code>
+		</timing>
+		<doseRange>
+		<!-- 1-2 Stück -->
+		<low>
+			<value value="1"/>
+			<system value="http://fhir.de/CodeSystem/kbv/s-bmp-dosiereinheit" />
+			<code value="1" />
+			<!-- Code "1" steht für "Stück", value gibt die Anzahl wieder -->
+		</low>
+				<high>
+			<value value="2"/>
+			<system value="http://fhir.de/CodeSystem/kbv/s-bmp-dosiereinheit" />
+			<code value="1" />
+			<!-- Code "1" steht für "Stück", value gibt die Anzahl wieder -->
+		</high>
+		</doseRange>
+	</dosage>
+</MedicationStatement>

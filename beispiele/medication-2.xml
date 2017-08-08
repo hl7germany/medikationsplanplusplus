@@ -1,0 +1,21 @@
+<Medication xmlns="http://hl7.org/fhir">
+	<meta>
+		<profile value="http://fhir.de/StructureDefinition/medikationsplanplus/medication" />
+	</meta>
+	<code>
+		<coding>
+			<system value="http://fhir.de/CodeSystem/ifa/pzn"/>
+			<code value="02078897"/>
+			<!-- Angabe display nicht verpflichtend, da aus Code ermittelbar -->
+			<display value="Diazepam-ratiopharm 10 mg Tabletten"/>
+		</coding>
+	</code>
+	<form>
+		<coding>
+			<system value="http://fhir.de/CodeSystem/kbv/s-bmp-darreichungsform" />
+			<code value="TAB" />
+			<!-- Angabe display nicht verpflichtend, da aus Code ermittelbar -->
+			<display value="Tabletten" />
+		</coding>
+	</form>
+</Medication>
