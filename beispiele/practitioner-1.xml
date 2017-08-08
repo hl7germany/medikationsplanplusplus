@@ -1,0 +1,28 @@
+<Practitioner xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://fhir.de/StructureDefinition/practitioner-de-basis" />
+	<profile value="http://fhir.de/StructureDefinition/medikationsplanplus/practitioner" />
+  </meta>
+  <identifier>
+    <system value="http://fhir.de/NamingSystem/kbv/lanr" />
+    <value value="123456701" />
+  </identifier>
+  <name>
+    <family value="Mustermann" />
+    <given value="Max" />
+    <prefix value="Dr. med." />
+  </name>
+  <telecom>
+	<system value="phone"/>
+	<value value="01234-56789"/>
+  </telecom>
+   <telecom>
+	<system value="email"/>
+	<value value="urbi@orbi.vt"/>
+  </telecom>
+  <address>
+	<line value="Westweg 123"/>
+	<city value="Gotham"/>
+	<postalCode value="12345"/>
+  </address>
+</Practitioner>

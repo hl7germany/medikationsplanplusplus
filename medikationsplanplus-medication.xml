@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <meta>
-    <lastUpdated value="2017-08-08T18:08:47.896+02:00" />
+    <lastUpdated value="2017-08-08T19:28:41.009+02:00" />
   </meta>
   <url value="http://fhir.de/StructureDefinition/medikationsplanplus/medication" />
   <name value="medikationsplanplus-medication" />
@@ -20,9 +20,10 @@
     </element>
     <element id="Medication.code.coding">
       <path value="Medication.code.coding" />
+      <short value="PZN-Nummer (@p)" />
       <binding>
         <strength value="required" />
-        <valueSetUri value="urn:oid:1.2.276.0.76.4.6" />
+        <valueSetUri value="http://fhir.de/ValueSet/ifa/pzn" />
       </binding>
     </element>
     <element id="Medication.code.coding.system">
@@ -40,7 +41,7 @@
         <valueBoolean value="true" />
       </extension>
       <path value="Medication.code.text" />
-      <short value="Alternativer Textm falls PZN unbekannt" />
+      <short value="Handelsname (@a)" />
       <mustSupport value="true" />
     </element>
     <element id="Medication.isBrand">
@@ -62,6 +63,7 @@
     </element>
     <element id="Medication.form.coding">
       <path value="Medication.form.coding" />
+      <short value="Darreichungsform codiert (@f)" />
       <binding>
         <strength value="required" />
         <valueSetUri value="http://fhir.de/ValueSet/kbv/s-bmp-darreichungsform" />
@@ -82,6 +84,12 @@
         <valueBoolean value="true" />
       </extension>
       <path value="Medication.form.text" />
+      <short value="Darreichungsform als Freitext (@fd)" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Medication.ingredient">
+      <path value="Medication.ingredient" />
+      <short value="Wirkstoff (W)" />
       <mustSupport value="true" />
     </element>
     <element id="Medication.ingredient.item[x]:itemCodeableConcept">
@@ -128,6 +136,18 @@
     <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:edqm.code">
       <path value="Medication.ingredient.itemCodeableConcept.coding.code" />
       <min value="1" />
+    </element>
+    <element id="itemCodeableConcept:itemCodeableConcept.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Medication.ingredient.itemCodeableConcept.text" />
+      <short value="Wirkstoffname (@w)" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Medication.ingredient.amount">
+      <path value="Medication.ingredient.amount" />
+      <mustSupport value="true" />
     </element>
     <element id="Medication.package.container.coding.system">
       <path value="Medication.package.container.coding.system" />

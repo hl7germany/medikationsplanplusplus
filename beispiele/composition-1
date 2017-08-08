@@ -1,0 +1,56 @@
+<Composition xmlns="http://hl7.org/fhir">
+	<meta>
+		<profile value="http://fhir.de/StructureDefinition/medikationsplanplus/list" />
+	</meta>
+	<identifier>
+		<system value="http://example.de/composition-identifier"/>
+		<value value="12345654321"/>
+	</identifier>
+	<type>
+		<coding>
+			<system value="http://loinc.org" />
+			<code value="X_PMR" />
+			<!-- Angabe display nicht verpflichtend, da aus Code ermittelbar -->
+			<display value="Patientenbezogener Medikationsplan" />
+		</coding>
+	</type>
+	<subject>
+		<reference value="Patient/patient-1"/>
+	</subject>
+	<date value="2017-08-01"/>
+	<author>
+		<reference value="Practitioner/practitioner-1"/>
+	</author>
+	<title value="Medikationsplan vom 1.8.2017"/>
+	<section>
+		<!-- Aktuelle Medikation -->
+		<coding>
+			<system value="http://loinc.org" />
+			<code value="19009-0" />
+		</coding>
+		<entry>
+			<item>
+				<reference value="List/medicationlist-1"/>
+			</item>
+		</entry>
+	</section>
+	<section>
+		<!-- Gesundheitsbelange -->
+		<coding>
+			<system value="http://loinc.org" />
+			<code value="75310-3" />
+		</coding>
+		<!--Schwangerschaftsstatus-->
+		<entry>
+			<item>
+				<reference value="Observation/observation-pregnancystatus-1"/>
+			</item>
+		</entry>
+		<!--Geburtstermin-->
+		<entry>
+			<item>
+				<reference value="Observation/observation-expectedbirthdate-1"/>
+			</item>
+		</entry>
+	</section>
+</Composition>

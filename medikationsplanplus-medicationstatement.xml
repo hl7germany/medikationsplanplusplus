@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <meta>
-    <lastUpdated value="2017-08-08T19:12:27.859+02:00" />
+    <lastUpdated value="2017-08-08T19:14:24.141+02:00" />
   </meta>
   <url value="http://fhir.de/StructureDefinition/medikationsplanplus/medicationstatement" />
   <name value="medikationsplanplus-medicationstatement" />
@@ -93,11 +93,6 @@
     </element>
     <element id="MedicationStatement.derivedFrom">
       <path value="MedicationStatement.derivedFrom" />
-      <max value="0" />
-    </element>
-    <element id="MedicationStatement.taken">
-      <path value="MedicationStatement.taken" />
-      <min value="0" />
       <max value="0" />
     </element>
     <element id="MedicationStatement.reasonNotTaken">

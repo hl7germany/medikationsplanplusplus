@@ -1,0 +1,20 @@
+<List xmlns="http://hl7.org/fhir">
+	<meta>
+		<profile value="http://fhir.de/StructureDefinition/medikationsplanplus/list" />
+	</meta>
+	<status value="current"/>
+	<mode value="snapshot"/>
+	<code>
+		<coding>
+			<system value="http://fhir.de/CodeSystem/kbv/s-bmp-zwischenueberschrift" />
+			<code value="412" />
+			<!-- Angabe display nicht verpflichtend, da aus Code ermittelbar -->
+			<display value="Dauermedikation" />
+		</coding>
+	</code>
+	<entry>
+		<item>
+			<reference value="Medicationstatement/medicationstatement-1"/>
+		</item>
+	</entry>
+</List>
