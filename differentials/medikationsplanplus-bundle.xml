@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2017-08-08T20:55:52.068+02:00" />
+  </meta>
+  <url value="http://fhir.de/StructureDefinition/medikationsplanplus/bundle" />
+  <name value="medikationsplanplus-bundle" />
+  <status value="draft" />
+  <date value="2017-08-06T09:39:23.776+02:00" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Bundle" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Bundle" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Bundle.identifier.use">
+      <path value="Bundle.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.identifier.type">
+      <path value="Bundle.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.identifier.period">
+      <path value="Bundle.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.identifier.assigner">
+      <path value="Bundle.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.type">
+      <path value="Bundle.type" />
+      <fixedCode value="document" />
+    </element>
+    <element id="Bundle.total">
+      <path value="Bundle.total" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.link">
+      <path value="Bundle.link" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry">
+      <path value="Bundle.entry" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="resource.id" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <comment value="ToDo: Slicing discriminator ok ? " />
+    </element>
+    <element id="Bundle.entry:composition">
+      <path value="Bundle.entry" />
+      <sliceName value="composition" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Bundle.entry:composition.link">
+      <path value="Bundle.entry.link" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:composition.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Composition" />
+        <profile value="http://fhir.de/StructureDefinition/medikationsplanplus/composition" />
+      </type>
+    </element>
+    <element id="Bundle.entry:composition.search">
+      <path value="Bundle.entry.search" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:composition.request">
+      <path value="Bundle.entry.request" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:composition.response">
+      <path value="Bundle.entry.response" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2017-08-08T20:56:28.014+02:00" />
+  </meta>
+  <url value="http://fhir.de/StructureDefinition/medikationsplanplus/patient" />
+  <name value="medikationsplanplus-patient" />
+  <status value="draft" />
+  <date value="2017-08-08T17:11:09.978+02:00" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Patient" />
+  <baseDefinition value="http://fhir.de/StructureDefinition/patient-de-basis" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Patient.identifier">
+      <path value="Patient.identifier" />
+      <mustSupport value="false" />
+    </element>
+    <element id="Patient.identifier:VersichertenID_GKV">
+      <path value="Patient.identifier" />
+      <sliceName value="VersichertenID_GKV" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Patient.identifier:KrankenversichertennummerGKV.system">
+      <path value="Patient.identifier.system" />
+      <comment value="Die Versicherten-ID ist der 10-stellige unveränderliche Teil der 30-stelligen Krankenversichertennummer. " />
+      <mustSupport value="false" />
+    </element>
+    <element id="Patient.identifier:KrankenversichertennummerGKV.value">
+      <path value="Patient.identifier.value" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Patient.name.family">
+      <path value="Patient.name.family" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Patient.name.given">
+      <path value="Patient.name.given" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Patient.gender">
+      <path value="Patient.gender" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Patient.birthDate">
+      <path value="Patient.birthDate" />
+      <mustSupport value="true" />
+    </element>
+  </differential>
+</StructureDefinition>

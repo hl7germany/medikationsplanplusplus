@@ -20,17 +20,18 @@
 	<dosage>
 		<timing>
 			<!-- Einnahme morgens -->
-			<coding>
-				<system value=" http://hl7.org/fhir/v3/TimingEvent"/>
-				<code value="CV"/>
-			</coding>
+			<code>
+				<coding>
+					<system value=" http://hl7.org/fhir/v3/TimingEvent"/>
+					<code value="CV"/>
+				</coding>
+			</code>
 		</timing>
-		<dosageQuantity>
+		<doseQuantity>
 			<value value="1"/>
 			<system value="http://fhir.de/CodeSystem/kbv/s-bmp-dosiereinheit" />
 			<code value="1" />
-			<!-- Angabe display nicht verpflichtend, da aus Code ermittelbar -->
-			<display value="Stück" />
-		</dosageQuantity>
+			<!-- Code "1" steht für "Stück", value gibt die Anzahl wieder -->
+		</doseQuantity>
 	</dosage>
 </MedicationStatement>

@@ -1,6 +1,7 @@
 <Patient xmlns="http://hl7.org/fhir">
   <meta>
       <profile value="http://fhir.de/StructureDefinition/patient-de-basis" />
+	  <profile value="http://fhir.de/StructureDefinition/medikationsplanplus/patient" />
   </meta>
   <identifier>
     <system value="http://fhir.de/NamingSystem/gkv/kvid-10" />
@@ -10,4 +11,6 @@
     <family value="Mustermann" />
     <given value="Max" />
   </name>
+  <gender value="male"/>
+  <birthDate value="1978-06-05"/>
 </Patient>
