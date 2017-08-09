@@ -12,10 +12,9 @@
 	</code>
 	<form>
 		<coding>
-			<system value="http://fhir.de/CodeSystem/kbv/s-bmp-darreichungsform" />
-			<code value="TAB" />
-			<!-- Angabe display nicht verpflichtend, da aus Code ermittelbar -->
-			<display value="Tabletten" />
+			<!--Darreichungsform Tablette codiert nach EDQMDoseForm-->
+			<system value="urn:oid:0.4.0.127.0.16.1.1.2.1"/>
+            <code value="12200"/>
 		</coding>
 	</form>
 </Medication>
