@@ -22,37 +22,44 @@
 	<author>
 		<reference value="Practitioner/practitioner-1"/>
 	</author>
+	<custodian>
+		<identifier>
+			<system value="http://fhir.de/NamingSystem/bfarm/btmnr"/>
+			<value value="123456"/>
+		</identifier>
+		<display value="Sonnen-Apotheke Musterhausen"/>
+	</custodian>
 	<title value="Medikationsplan vom 1.8.2017"/>
 	<section>
 		<!-- Aktuelle Medikation -->
 		<code>
-		<coding>
-			<system value="http://loinc.org" />
-			<code value="19009-0" />
-		</coding>
+			<coding>
+				<system value="http://loinc.org" />
+				<code value="19009-0" />
+			</coding>
 		</code>
 		<entry>
-				<reference value="List/medicationlist-1"/>
+			<reference value="List/medicationlist-1"/>
 		</entry>
 		<entry>
-				<reference value="List/medicationlist-2"/>
+			<reference value="List/medicationlist-2"/>
 		</entry>
 	</section>
 	<section>
 		<!-- Gesundheitsbelange -->
 		<code>
-		<coding>
-			<system value="http://loinc.org" />
-			<code value="75310-3" />
-		</coding>
+			<coding>
+				<system value="http://loinc.org" />
+				<code value="75310-3" />
+			</coding>
 		</code>
 		<!--Schwangerschaftsstatus-->
 		<entry>
-				<reference value="Observation/observation-pregnancystatus-1"/>
+			<reference value="Observation/observation-pregnancystatus-1"/>
 		</entry>
 		<!--Stillzeit-->
 		<entry>
-				<reference value="Observation/observation-breastfeeding-1"/>
+			<reference value="Observation/observation-breastfeeding-1"/>
 		</entry>
 	</section>
 </Composition>
