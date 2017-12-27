@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <meta>
-    <lastUpdated value="2017-08-08T22:40:13.884+02:00" />
+    <lastUpdated value="2017-12-27T14:45:55.954+01:00" />
   </meta>
   <url value="http://fhir.de/StructureDefinition/medikationsplanplus/medicationstatement" />
   <name value="medikationsplanplus-medicationstatement" />
@@ -3215,6 +3215,7 @@
       <type>
         <code value="code" />
       </type>
+      <fixedCode value="na" />
       <condition value="ele-1" />
       <constraint>
         <key value="ele-1" />
@@ -20961,6 +20962,10 @@
     <element id="MedicationStatement.derivedFrom">
       <path value="MedicationStatement.derivedFrom" />
       <max value="0" />
+    </element>
+    <element id="MedicationStatement.taken">
+      <path value="MedicationStatement.taken" />
+      <fixedCode value="na" />
     </element>
     <element id="MedicationStatement.reasonNotTaken">
       <path value="MedicationStatement.reasonNotTaken" />
