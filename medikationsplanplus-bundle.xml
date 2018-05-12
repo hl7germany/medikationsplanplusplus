@@ -244,6 +244,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <isSummary value="true" />
       <mapping>
         <identity value="rim" />
@@ -951,6 +952,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <isSummary value="true" />
       <mapping>
         <identity value="rim" />
@@ -996,6 +998,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <isSummary value="true" />
       <mapping>
         <identity value="rim" />
@@ -1495,6 +1498,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <isSummary value="true" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1797,6 +1801,7 @@
         <expression value="resource.exists() or request.exists() or response.exists()" />
         <xpath value="exists(f:resource) or exists(f:request) or exists(f:response)" />
       </constraint>
+      <mustSupport value="true" />
       <isSummary value="true" />
       <mapping>
         <identity value="rim" />
@@ -3032,6 +3037,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <isSummary value="true" />
       <mapping>
         <identity value="rim" />
@@ -4690,6 +4696,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <isModifier value="true" />
       <isSummary value="true" />
       <binding>
@@ -5941,6 +5948,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <isSummary value="true" />
       <mapping>
         <identity value="rim" />
@@ -6479,6 +6487,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <isSummary value="true" />
       <mapping>
         <identity value="rim" />
@@ -7160,8 +7169,8 @@
       <path value="Bundle.entry.resource.custodian" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="reference" />
+          <type value="pattern" />
+          <path value="identifier" />
         </discriminator>
         <rules value="closed" />
       </slicing>
@@ -11826,7 +11835,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
-      <mustSupport value="false" />
+      <mustSupport value="true" />
       <mapping>
         <identity value="rim" />
         <map value="n/a" />
@@ -14151,6 +14160,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <mapping>
         <identity value="rim" />
         <map value="n/a" />
@@ -16475,6 +16485,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <mapping>
         <identity value="rim" />
         <map value="n/a" />
@@ -19296,6 +19307,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <mapping>
         <identity value="rim" />
         <map value="n/a" />
@@ -24683,6 +24695,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <mapping>
         <identity value="rim" />
         <map value="n/a" />
@@ -28296,6 +28309,10 @@
     </element>
   </snapshot>
   <differential>
+    <element id="Bundle.identifier">
+      <path value="Bundle.identifier" />
+      <mustSupport value="true" />
+    </element>
     <element id="Bundle.identifier.use">
       <path value="Bundle.identifier.use" />
       <max value="0" />
@@ -28303,6 +28320,14 @@
     <element id="Bundle.identifier.type">
       <path value="Bundle.identifier.type" />
       <max value="0" />
+    </element>
+    <element id="Bundle.identifier.system">
+      <path value="Bundle.identifier.system" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Bundle.identifier.value">
+      <path value="Bundle.identifier.value" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.identifier.period">
       <path value="Bundle.identifier.period" />
@@ -28315,6 +28340,7 @@
     <element id="Bundle.type">
       <path value="Bundle.type" />
       <fixedCode value="document" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.total">
       <path value="Bundle.total" />
@@ -28334,6 +28360,7 @@
         <rules value="openAtEnd" />
       </slicing>
       <comment value=" " />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.entry:composition">
       <path value="Bundle.entry" />
@@ -28344,6 +28371,10 @@
     <element id="Bundle.entry:composition.link">
       <path value="Bundle.entry.link" />
       <max value="0" />
+    </element>
+    <element id="Bundle.entry:composition.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.entry:composition.resource">
       <path value="Bundle.entry.resource" />
