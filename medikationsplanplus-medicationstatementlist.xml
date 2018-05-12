@@ -754,6 +754,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <isSummary value="true" />
       <mapping>
         <identity value="rim" />
@@ -1660,6 +1661,7 @@
         <expression value="reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))" />
         <xpath value="not(starts-with(f:reference/@value, '#')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')])" />
       </constraint>
+      <mustSupport value="true" />
       <mapping>
         <identity value="rim" />
         <map value="n/a" />
@@ -1775,6 +1777,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="true" />
       <isSummary value="true" />
       <mapping>
         <identity value="rim" />
@@ -2082,6 +2085,10 @@
         <map value="what" />
       </mapping>
     </element>
+    <element id="List.code.coding">
+      <path value="List.code.coding" />
+      <mustSupport value="true" />
+    </element>
     <element id="List.code.coding.system">
       <path value="List.code.coding.system" />
       <min value="1" />
@@ -2304,6 +2311,7 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.de/StructureDefinition/medikationsplanplus/medicationstatement" />
       </type>
+      <mustSupport value="true" />
       <mapping>
         <identity value="rim" />
         <map value=".target or .role or .role.entity" />
@@ -2312,6 +2320,7 @@
     <element id="List.entry.item.reference">
       <path value="List.entry.item.reference" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="List.emptyReason">
       <path value="List.emptyReason" />
