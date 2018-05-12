@@ -108,13 +108,13 @@
         <key value="lst-3" />
         <severity value="warning" />
         <human value="MedicationStatements, die in der Liste &quot;Bedarfsmedikation&quot; enthalten sind, sollen auch als dosage.asNeededBoolean = true gekennzeichnet sein" />
-        <expression value="code.coding.where(code='411').empty() or entry.all($this.item.reference.dosage.asNeededBoolean='true')" />
+        <expression value="code.coding.where(code='411').empty() or entry.all($this.item.resolve().first().dosage.asNeededBoolean=true)" />
       </constraint>
       <constraint>
         <key value="lst-4" />
         <severity value="warning" />
         <human value="MedicationStatements, die in der Liste &quot;Dauermedikation&quot; enthalten sind, sollen auch als dosage.asNeededBoolean=false gekennzeichnet sein" />
-        <expression value="code.coding.where(code='412').empty() or entry.all($this.item.reference.dosage.asNeededBoolean='false')" />
+        <expression value="code.coding.where(code='412').empty() or entry.all($this.item.resolve().first().dosage.asNeededBoolean=false)" />
       </constraint>
       <mapping>
         <identity value="rim" />
@@ -1934,13 +1934,13 @@
         <key value="lst-3" />
         <severity value="warning" />
         <human value="MedicationStatements, die in der Liste &quot;Bedarfsmedikation&quot; enthalten sind, sollen auch als dosage.asNeededBoolean = true gekennzeichnet sein" />
-        <expression value="code.coding.where(code='411').empty() or entry.all($this.item.reference.dosage.asNeededBoolean='true')" />
+        <expression value="code.coding.where(code='411').empty() or entry.all($this.item.resolve().first().dosage.asNeededBoolean=true)" />
       </constraint>
       <constraint>
         <key value="lst-4" />
         <severity value="warning" />
         <human value="MedicationStatements, die in der Liste &quot;Dauermedikation&quot; enthalten sind, sollen auch als dosage.asNeededBoolean=false gekennzeichnet sein" />
-        <expression value="code.coding.where(code='412').empty() or entry.all($this.item.reference.dosage.asNeededBoolean='false')" />
+        <expression value="code.coding.where(code='412').empty() or entry.all($this.item.resolve().first().dosage.asNeededBoolean=false)" />
       </constraint>
       <mapping>
         <identity value="rim" />
