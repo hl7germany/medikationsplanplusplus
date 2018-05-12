@@ -107,14 +107,14 @@
       <constraint>
         <key value="lst-3" />
         <severity value="warning" />
-        <human value="MedicationStatements, die in der Liste &quot;Bedarfsmedikation&quot; enthalten sind, sollen mit als dosage.asNeededBoolean = true gekennzeichnet sein" />
-        <expression value="code.coding.code!='411' or entry.item.reference.dosage.asNeededBoolean='true'" />
+        <human value="MedicationStatements, die in der Liste &quot;Bedarfsmedikation&quot; enthalten sind, sollen auch als dosage.asNeededBoolean = true gekennzeichnet sein" />
+        <expression value="code.coding.where(code='411').empty() or entry.item.reference.dosage.asNeededBoolean='true'" />
       </constraint>
       <constraint>
         <key value="lst-4" />
         <severity value="warning" />
-        <human value="MedicationStatements, die in der Liste &quot;Dauermedikation&quot; enthalten sind, sollen mit dosage.asNeededBoolean=false gekennzeichnet sein" />
-        <expression value="code.coding.code!='412' or entry.item.reference.dosage.asNeededBoolean='false'" />
+        <human value="MedicationStatements, die in der Liste &quot;Dauermedikation&quot; enthalten sind, sollen auch als dosage.asNeededBoolean=false gekennzeichnet sein" />
+        <expression value="code.coding.where(code='412').empty() or entry.item.reference.dosage.asNeededBoolean='false'" />
       </constraint>
       <mapping>
         <identity value="rim" />
@@ -1933,14 +1933,14 @@
       <constraint>
         <key value="lst-3" />
         <severity value="warning" />
-        <human value="MedicationStatements, die in der Liste &quot;Bedarfsmedikation&quot; enthalten sind, sollen mit als dosage.asNeededBoolean = true gekennzeichnet sein" />
-        <expression value="code.coding.code!='411' or entry.item.reference.dosage.asNeededBoolean='true'" />
+        <human value="MedicationStatements, die in der Liste &quot;Bedarfsmedikation&quot; enthalten sind, sollen auch als dosage.asNeededBoolean = true gekennzeichnet sein" />
+        <expression value="code.coding.where(code='411').empty() or entry.item.reference.dosage.asNeededBoolean='true'" />
       </constraint>
       <constraint>
         <key value="lst-4" />
         <severity value="warning" />
-        <human value="MedicationStatements, die in der Liste &quot;Dauermedikation&quot; enthalten sind, sollen mit dosage.asNeededBoolean=false gekennzeichnet sein" />
-        <expression value="code.coding.code!='412' or entry.item.reference.dosage.asNeededBoolean='false'" />
+        <human value="MedicationStatements, die in der Liste &quot;Dauermedikation&quot; enthalten sind, sollen auch als dosage.asNeededBoolean=false gekennzeichnet sein" />
+        <expression value="code.coding.where(code='412').empty() or entry.item.reference.dosage.asNeededBoolean='false'" />
       </constraint>
       <mapping>
         <identity value="rim" />
