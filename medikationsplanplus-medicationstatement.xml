@@ -2652,7 +2652,7 @@
       <definition value="Provides extra information about the medication statement that is not conveyed by the other attributes." />
       <comment value="For systems that do not have structured annotations, they can simply communicate a single annotation with no author or time.  This element may need to be included in narrative because of the potential for modifying information.  *Annotations SHOULD NOT* be used to communicate &quot;modifying&quot; information that could be computable. (This is a SHOULD because enforcing user behavior is nearly impossible)." />
       <min value="0" />
-      <max value="0" />
+      <max value="1" />
       <base>
         <path value="MedicationStatement.note" />
         <min value="0" />
@@ -2669,7 +2669,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
-      <mustSupport value="false" />
+      <mustSupport value="true" />
       <mapping>
         <identity value="rim" />
         <map value="n/a" />
@@ -3767,6 +3767,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <mustSupport value="false" />
       <isSummary value="true" />
       <mapping>
         <identity value="rim" />
@@ -5924,7 +5925,7 @@
       <definition value="Hinweise/Instruktionen an den Patienten für die Einnahme, zum Beispiel &quot;morgens nüchtern 30 min vor dem Frühstück&quot;" />
       <comment value="Note that FHIR strings may not exceed 1MB in size" />
       <min value="0" />
-      <max value="1" />
+      <max value="0" />
       <base>
         <path value="Dosage.patientInstruction" />
         <min value="0" />
@@ -5941,7 +5942,7 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
-      <mustSupport value="true" />
+      <mustSupport value="false" />
       <isSummary value="true" />
       <mapping>
         <identity value="rim" />
@@ -8797,8 +8798,8 @@
     </element>
     <element id="MedicationStatement.note">
       <path value="MedicationStatement.note" />
-      <max value="0" />
-      <mustSupport value="false" />
+      <max value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="MedicationStatement.dosage">
       <path value="MedicationStatement.dosage" />
@@ -8873,6 +8874,7 @@
     <element id="MedicationStatement.dosage:freitext.patientInstruction">
       <path value="MedicationStatement.dosage.patientInstruction" />
       <max value="0" />
+      <mustSupport value="false" />
     </element>
     <element id="MedicationStatement.dosage:freitext.timing">
       <path value="MedicationStatement.dosage.timing" />
@@ -8949,7 +8951,8 @@
       <path value="MedicationStatement.dosage.patientInstruction" />
       <short value="Hinweise/Instruktionen an den Patienten für die Einnahme (@i)" />
       <definition value="Hinweise/Instruktionen an den Patienten für die Einnahme, zum Beispiel &quot;morgens nüchtern 30 min vor dem Frühstück&quot;" />
-      <mustSupport value="true" />
+      <max value="0" />
+      <mustSupport value="false" />
     </element>
     <element id="MedicationStatement.dosage:kodiert.timing">
       <path value="MedicationStatement.dosage.timing" />
