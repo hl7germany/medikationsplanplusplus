@@ -1,13 +1,9 @@
 # medikationsplanplusplus
 Technische Korrekturen zum Medikationsplan Plus - Arbeitsversion
 
-## Reconciliation des Ballots vom August/September 2017
+Dieses Projekt ist archiviert. Es werden keine weiteren Änderungen am Projekt vorgenommen.
 
-### Telefonkonferenz/GoToMeeting 08.12.2017, 14:00-15:40 Uhr
-
-Kommentare und Statusänderungen von Issues während dieser Zeitspanne entsprechen dem Konsens der Teilnehmer.
-
-Teilnehmer:
+Ansprechpartner:
 * Heike Dewenter
 * Christof Geßner
 * Simone Heckmann
